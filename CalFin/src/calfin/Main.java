@@ -27,11 +27,7 @@ public class Main {
             }
         }
         
-        CuotaNivelada cn = new CuotaNivelada(18000, 0.22, 8, TipoPagoAnual.MENSUAL);
         
-        cn.calcular();
-        
-        System.out.println( f( cn.getCuotaNivelada() ) );
         
         
     }
