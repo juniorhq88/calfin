@@ -8,7 +8,7 @@ package calculadora.razones;
  *
  * @author Jose Carlos Palma
  */
-public class TIRNotFoundException extends Exception {
+public class TIRNotFoundException extends RuntimeException {
 
     public TIRNotFoundException(String text) {
         super(text);
