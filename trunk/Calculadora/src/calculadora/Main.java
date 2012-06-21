@@ -6,10 +6,6 @@ package calculadora;
 
 import calculadora.razones.Flujos;
 import calculadora.razones.TIR;
-import calculadora.razones.TIRNotFoundException;
-import calculadora.razones.VPN;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -24,7 +20,7 @@ public class Main {
 
         Flujos flujos = new Flujos();
         flujos.agregarFlujos(3000, 3000, 2000, 4000, 4000, 4000, 7000);
-        
-        System.out.println( TIR.calcularTIR(flujos, Double.parseDouble(args[0])) );
+
+        System.out.println(TIR.calcularTIR(flujos, Double.parseDouble(args[0])));
     }
 }
