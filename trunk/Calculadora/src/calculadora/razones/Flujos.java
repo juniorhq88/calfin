@@ -64,7 +64,7 @@ public class Flujos {
      */
     public double getFlujo(int periodo) {
         if (periodo < 1 || periodo > flujos.size()) {
-            throw new IllegalStateException("Período fuera de rango");
+            throw new IllegalArgumentException("Período fuera de rango");
         }
         return flujos.get(periodo - 1);
     }
@@ -112,7 +112,7 @@ public class Flujos {
      */
     public void setFlujo(int periodo, double flujo) {
         if (periodo < 1 || periodo > flujos.size()) {
-            throw new IllegalStateException("Per\u00edodo fuera de rango");
+            throw new IllegalArgumentException("Per\u00edodo fuera de rango");
         }
         flujos.set(periodo - 1, flujo);
     }
@@ -148,7 +148,7 @@ public class Flujos {
      */
     public void sumarAlFlujo(int periodo, double monto) {
         if (periodo < 1 || periodo > flujos.size()) {
-            throw new IllegalStateException("Per\u00edodo fuera de rango");
+            throw new IllegalArgumentException("Per\u00edodo fuera de rango");
         }
         flujos.set(periodo - 1, flujos.get(periodo - 1) + monto);
     }
