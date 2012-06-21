@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 public class TIR {
     
     
-    public static final String pattern = "+###,###,##0.000000000000;-###,###,##0.000000000000";
+    public static final String pattern = "+###,###,##0.0000000;-###,###,##0.0000000";
     public static final DecimalFormat df = new DecimalFormat(pattern);
     
     
@@ -34,7 +34,7 @@ public class TIR {
             delta = Math.abs(tir - tir2);
             System.out.printf("%1$3d %2$30s %3$30s %4$30s %5$30s %6$30s\n", count, f(tir), f(van), f(vanprima), f(tir2), f(delta));
             tir = tir2;
-        } while (++count <= 100 && (long) (delta * 1000000000000L) != 0L);
+        } while (++count <= 100 && (long) (delta * 10000000L) != 0L);
 
         if (count > 100) {
             throw new TIRNotFoundException("TIR no encontrada [delta=" + delta + "]");
