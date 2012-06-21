@@ -4,8 +4,6 @@
  */
 package calculadora.razones;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Jose Carlos Palma
@@ -28,6 +26,7 @@ public class VPN {
      * Utiliza un modelo matemático para el calculo dado por la formula:<BR>
      * <img src="../../resources/vp.png"/>
      *
+     * @param flujos listado de flujos.
      * @param tasa es el valor de la tasa.
      * @return el valor presente.
      */
@@ -49,10 +48,12 @@ public class VPN {
      * Utiliza un modelo matemático para el calculo dado por la formula:<BR>
      * <img src="../../resources/vpn.png"/>
      *
+     * @param flujos listado de flujos.
      * @param tasa es el valor de la tasa.
-     * @return el valor presente neto (descontado).
+     * @param inversion es la inversión inicial.
+     * @return el valor presente neto.
      */
-    public static double calcularValorPresenteNeto(Flujos flujos, double inversion, double tasa) {
+    public static double calcularValorPresenteNeto(Flujos flujos, double tasa, double inversion) {
         return calcularValorPresente(flujos, tasa) - inversion;
     }
 
@@ -63,6 +64,7 @@ public class VPN {
      * específica.<BR>Utiliza un modelo matemático para el calculo dado por la
      * formula:<BR> <img src="../../resources/vpnprima.png"/>
      *
+     * @param flujos listado de flujos.
      * @param tasa es el valor de la tasa.
      * @return el valor VPN'
      */
@@ -73,5 +75,5 @@ public class VPN {
         }
         return retVal;
     }
-
+    
 }
