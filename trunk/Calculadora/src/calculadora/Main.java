@@ -8,6 +8,7 @@ import calculadora.prestamos.Cuotas;
 import calculadora.prestamos.Prestamo;
 import calculadora.prestamos.TipoPagoAnual;
 import calculadora.razones.Flujos;
+import calculadora.razones.TIR;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Main {
         Flujos flujos = new Flujos();
         flujos.agregarFlujos(3000, 3000, 2000, 4000, 4000, 4000, 7000);
         
+        TIR.calcularTIR(flujos, 18000);
         
         Cuotas c = Prestamo.calcularCuotaNivelada(18000, 0.20, 8, TipoPagoAnual.MENSUAL);
         c.print();
