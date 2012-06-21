@@ -4,64 +4,34 @@
  */
 package calculadora.razones;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Jose Carlos Palma
  */
-public class TIR extends Flujos{
-    
-    private double inversion;
-    
-    
-    public TIR(){
-        flujos = new ArrayList<Double>();
-    }
-    
-    /**
-     * Establece la inversión inicial.
-     *
-     * @param inversion es el valor de la inversión inicial.
-     */
-    public void setInversion(double inversion) {
-        this.inversion = inversion;
+public class TIR {
+
+    private TIR() {
     }
 
-    /**
-     * Devuelve la inversión inicial.
-     *
-     * @return el valor de la inversión inicial.
-     */
-    public double getInversion() {
-        return this.inversion;
-    }
-    
-    
-    public double calcularTIR(){
-        VPN vpn = new VPN();
-        vpn.setInversion(inversion);
-        vpn.setFlujos(flujos);
-        
-        double tir = 0.0;
-        double tir2;
-        double van;
-        double vanprima;
-        double delta = -1.0;
-        
-        for(int i = 0; i < 200 && (int)(delta*10000000) != 0; i++){
-            van = vpn.calcularValorPresenteNeto(tir);
-            vanprima = vpn.calcularVPNPrima(tir);
-            tir2 = tir - ( van / vanprima );
+    public static double calcularTIR(Flujos flujos, double inversion) throws TIRNotFoundException {
+
+        double tir = 0.0, tir2, van, vanprima, delta = -1.0;
+        int count = 0;
+
+        do {
+            van = VPN.calcularValorPresenteNeto(flujos, inversion, tir);
+            vanprima = VPN.calcularVPNPrima(flujos, tir);
+            tir2 = tir - (van / vanprima);
             delta = Math.abs(tir - tir2);
-            
+
             tir = tir2;
-        }//9.66968391467227%
-        
-        
-        
+        } while (++count <= 20 && (int) (delta * 10000000) != 0);
+
+        if (count > 20) {
+            throw new TIRNotFoundException("TIR no encontrada [delta=" + delta + "]");
+        }
+
+
         return tir;
     }
-    
-    
 }

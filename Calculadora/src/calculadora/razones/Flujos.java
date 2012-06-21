@@ -13,12 +13,16 @@ import java.util.ArrayList;
 public class Flujos {
     
     
-    protected ArrayList<Double> flujos;
+    protected ArrayList<Double> flujos = new ArrayList<Double>();
     
     
     public Flujos() {
     }
-
+    
+    public int size(){
+        return flujos.size();
+    }
+    
     /**
      * Agrega el flujo al final.
      *
@@ -60,7 +64,7 @@ public class Flujos {
      */
     public double getFlujo(int periodo) {
         if (periodo < 1 || periodo > flujos.size()) {
-            throw new IllegalStateException("Periodo fuera de rango");
+            throw new IllegalStateException("Período fuera de rango");
         }
         return flujos.get(periodo - 1);
     }
@@ -84,7 +88,7 @@ public class Flujos {
      * @return una lista con los flujos.
      */
     public ArrayList<Double> getFlujosLista() {
-        return (ArrayList<Double>) flujos.clone();
+        return flujos;
     }
 
     /**
