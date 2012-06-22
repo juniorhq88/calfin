@@ -4,6 +4,7 @@
  */
 package calculadora.prestamos;
 
+import calculadora.razones.Flujos;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -98,5 +99,15 @@ public class Cuotas {
         for(double[] c: cuotas){
             System.out.println( Arrays.toString(c) );
         }
+    }
+    
+    public Flujos getFlujos(){
+        Flujos retVal = new Flujos();
+        
+        for( double[] c: cuotas ){
+            retVal.agregarFlujo(c[VALOR_CUOTA]);
+        }
+        
+        return retVal;
     }
 }

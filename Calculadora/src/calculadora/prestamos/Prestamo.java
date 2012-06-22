@@ -12,12 +12,16 @@ public class Prestamo {
 
     private Prestamo() {
     }
-
-    public static Cuotas calcularCuotaNivelada(double monto, double tasa, int plazos, TipoPagoAnual tipo) {
+    
+    public static Cuotas calcularCuotaNivelada(double monto, double tasa, int plazos, TipoPagoAnual tipo, int periodoInicial) {
         Cuotas retVal = new Cuotas();
         
         double cuota = cuotaNivelada(monto, tasa, plazos, tipo);
         double saldo = monto;
+        
+        for(int i = 1; i <= (periodoInicial-1); i++){
+            retVal.agregarCuotaInfo(0,0,0,saldo);
+        }
         
         for(int i = 1; i <= plazos; i++){
              double pi = saldo * tpc(tasa, tipo);
@@ -26,6 +30,10 @@ public class Prestamo {
         }
 
         return retVal;
+    }
+
+    public static Cuotas calcularCuotaNivelada(double monto, double tasa, int plazos, TipoPagoAnual tipo) {
+        return calcularCuotaNivelada(monto, tasa, plazos, tipo, 1);
     }
 
     public static double cuotaNivelada(double monto, double tasa, int plazos, TipoPagoAnual tipo) {

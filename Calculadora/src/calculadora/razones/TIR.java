@@ -5,6 +5,7 @@
 package calculadora.razones;
 
 import java.text.DecimalFormat;
+import java.util.Arrays;
 
 /**
  *
@@ -24,6 +25,9 @@ public class TIR {
 
         double tir = -0.9, tir2, van, vanprima, delta = 0.0;
         int count = 0;
+        
+        System.out.println("Inversion: " + inversion);
+        System.out.println( Arrays.toString( flujos.getFlujos() ) );
         
         System.out.printf("%1$3s %2$30s %3$30s %4$30s %5$30s %6$30s\n", "i", "TIR(i)", "VAN(i)", "VAN'(i)", "TIR(i+1)", "Delta");
         

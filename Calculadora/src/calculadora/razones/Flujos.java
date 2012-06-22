@@ -4,6 +4,7 @@
  */
 package calculadora.razones;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -11,18 +12,16 @@ import java.util.ArrayList;
  * @author Jose Carlos Palma
  */
 public class Flujos {
-    
-    
+
     protected ArrayList<Double> flujos = new ArrayList<Double>();
-    
-    
+
     public Flujos() {
     }
-    
-    public int size(){
+
+    public int size() {
         return flujos.size();
     }
-    
+
     /**
      * Agrega el flujo al final.
      *
@@ -92,18 +91,6 @@ public class Flujos {
     }
 
     /**
-     * Resta al flujo del periodo el valor del monto. <B><I>Nota: los periodos
-     * comienzan de 1.</I></B>
-     *
-     * @param periodo es el periodo del flujo.
-     * @param monto es el valor que se va a restar.
-     */
-    public void restarAlFlujo(int periodo, double monto) {
-        sumarAlFlujo(periodo, -monto);
-    }
-
-    
-    /**
      * Establece el valor del flujo para un periodo específico.<BR><B><I>Nota:
      * los periodos comienzan de 1.</I></B>
      *
@@ -117,7 +104,6 @@ public class Flujos {
         flujos.set(periodo - 1, flujo);
     }
 
-
     /**
      * Estable los flujos.
      *
@@ -127,7 +113,6 @@ public class Flujos {
         this.flujos.clear();
         agregarFlujos(flujos);
     }
-
 
     /**
      * Estable los flujos.
@@ -153,4 +138,22 @@ public class Flujos {
         flujos.set(periodo - 1, flujos.get(periodo - 1) + monto);
     }
 
+    /**
+     * Resta al flujo del periodo el valor del monto. <B><I>Nota: los periodos
+     * comienzan de 1.</I></B>
+     *
+     * @param periodo es el periodo del flujo.
+     * @param monto es el valor que se va a restar.
+     */
+    public void restarAlFlujo(int periodo, double monto) {
+        sumarAlFlujo(periodo, -monto);
+    }
+
+    public void print(String pattern) {
+        DecimalFormat df = new DecimalFormat(pattern);
+
+        for (int i = 0; i < flujos.size(); i++) {
+            System.out.printf("%1$3s %2$20s\n", i + 1, df.format(flujos.get(i)));
+        }
+    }
 }
