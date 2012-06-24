@@ -8,7 +8,7 @@ package calculadora.prestamos;
  *
  * @author Jose Carlos Palma
  */
-public enum TipoPagoAnual {
+public enum TipoTasa {
     
     SEMANAL(52),
     QUINCENAL(24),
@@ -21,7 +21,7 @@ public enum TipoPagoAnual {
     
     private int valor;
     
-    TipoPagoAnual(int val){
+    TipoTasa(int val){
         this.valor = val;
     }
     
