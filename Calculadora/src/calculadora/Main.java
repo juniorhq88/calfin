@@ -7,8 +7,6 @@ package calculadora;
 import calculadora.prestamos.Cuotas;
 import calculadora.prestamos.Prestamo;
 import calculadora.prestamos.TipoTasa;
-import calculadora.razones.Flujos;
-import calculadora.razones.TIR;
 
 /**
  *
