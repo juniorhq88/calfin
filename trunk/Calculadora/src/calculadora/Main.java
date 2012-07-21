@@ -24,11 +24,11 @@ public class Main {
         //TIR.calcularTIR(flujos, 18000);
         
         
-        Cuotas c = Prestamo.calcularCuotaNivelada(18000, 0.22, 24, TipoTasa.MENSUAL,1);
+        Cuotas c = Prestamo.calcularCuotaNivelada(27000, 0.01, 12, TipoTasa.MENSUAL);
         c.print();
         
-        c = Prestamo.calcularSaldoInsoluto(18000, 0.22, 24, TipoTasa.MENSUAL, 1);
-        c.print();
+        //c = Prestamo.calcularSaldoInsoluto(18000, 0.22, 24, TipoTasa.MENSUAL, 1);
+        //c.print();
         //Flujos f = c.getFlujos();
         //f.restarAlFlujo(1, 450);
         
