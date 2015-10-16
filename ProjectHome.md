@@ -1,0 +1,1 @@
+Implementación de cálculos financieros para el sector bancario, cálcula el VAN, TIR y el valor real de prestamos, para prestamos de cuotas niveladas, etc.
